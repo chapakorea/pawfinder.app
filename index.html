@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PawFinder — Official Page</title>
+<link rel="icon" href="pawfinder-logo.png" />
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --text: #24292a;
+    --text: #24292a;
+    --muted: #5b6266;
+    --border: #e4e0d8;
+    --primary: #2f9e6e;
+    --primary-dark: #217a54;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  header img {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 12px;
+  }
+  header h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  .btn-store {
+    display: inline-block;
+    margin-top: 20px;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-size: 15px;
+  }
+  .btn-store:hover { background: var(--primary-dark); }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  section h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 0 0 12px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+  }
+  .row:first-of-type { border-top: none; padding-top: 0; }
+  .row a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .row a:hover { color: var(--primary); }
+  .lang-links a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 12px;
+  }
+  .lang-links a:hover { color: var(--primary); text-decoration: underline; }
+  .social {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+  .social a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 14px;
+  }
+  .social a:hover { border-color: var(--primary); color: var(--primary); }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 32px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181a;
+      --card: #1f2224;
+      --text: #eceeef;
+      --muted: #9aa1a6;
+      --border: #33373a;
+      --primary: #3ecb8c;
+      --primary-dark: #2f9e6e;
+    }
+    .btn-store { color: #0d1210; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="pawfinder-logo.png" alt="PawFinder logo" />
+    <h1>PawFinder</h1>
+    <p>Report and find lost pets nearby — faster reunions for the whole community.</p>
+    <a class="btn-store" href="https://play.google.com/store/apps/details?id=io.pawfinder.app">Get it on Google Play</a>
+  </header>
+
+  <section>
+    <h2>Legal</h2>
+    <div class="row">
+      <a href="https://chapakorea.github.io/pawfinder-legal/TermsAndConditionsPawFinder-en.pdf">Terms &amp; Conditions</a>
+      <span class="lang-links">
+        <a href="https://chapakorea.github.io/pawfinder-legal/TermsAndConditionsPawFinder-en.pdf">EN</a>
+        <a href="https://chapakorea.github.io/pawfinder-legal/TermsAndConditionsPawFinder-es.pdf">ES</a>
+      </span>
+    </div>
+    <div class="row">
+      <a href="https://chapakorea.github.io/pawfinder-legal/PrivacyPolicyPawFinder-en.pdf">Privacy Policy</a>
+      <span class="lang-links">
+        <a href="https://chapakorea.github.io/pawfinder-legal/PrivacyPolicyPawFinder-en.pdf">EN</a>
+        <a href="https://chapakorea.github.io/pawfinder-legal/PrivacyPolicyPawFinder-es.pdf">ES</a>
+      </span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Account &amp; Data</h2>
+    <div class="row">
+      <a href="https://chapakorea.github.io/pawfinder.app/delete-account.html">Delete your account or data</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Support the project</h2>
+    <div class="row">
+      <a href="https://www.paypal.com/donate/?hosted_button_id=6DUVXLSW62TB8">Donate via PayPal</a>
+    </div>
+    <div class="row">
+      <a href="https://ko-fi.com/jgpelaez">Support on Ko-fi</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Connect</h2>
+    <div class="social">
+      <a href="https://instagram.com/pawfinderapp">Instagram</a>
+      <a href="https://facebook.com/pawfinderappoficial">Facebook</a>
+      <a href="mailto:contact@pawfinder.io">Email</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> PawFinder
+  </footer>
+
+</div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
