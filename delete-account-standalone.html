@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Cómo eliminar permanentemente tu cuenta de PawFinder y todos tus datos. How to permanently delete your PawFinder account and data.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%BE%3C/text%3E%3C/svg%3E">
+<title>Elimina tu cuenta y tus datos — PawFinder</title>
+<style>
+  :root {
+    --bg: #f5f8fc;
+    --surface: #ffffff;
+    --surface-sunken: #eef3f9;
+    --border: #d8e2ec;
+    --text: #16232f;
+    --text-muted: #55697a;
+    --accent: #2568c7;
+    --accent-ink: #0f4694;
+    --paw: #e08a2c;
+    --danger: #b34a35;
+    --danger-bg: #fbeeea;
+    --focus: #2568c7;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1720;
+      --surface: #16212c;
+      --surface-sunken: #1c2934;
+      --border: #2b3947;
+      --text: #e8edf2;
+      --text-muted: #93a4b3;
+      --accent: #5b9bf2;
+      --accent-ink: #bcd7fb;
+      --paw: #f0a44b;
+      --danger: #e2836c;
+      --danger-bg: #2c1a16;
+      --focus: #5b9bf2;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1720;
+    --surface: #16212c;
+    --surface-sunken: #1c2934;
+    --border: #2b3947;
+    --text: #e8edf2;
+    --text-muted: #93a4b3;
+    --accent: #5b9bf2;
+    --accent-ink: #bcd7fb;
+    --paw: #f0a44b;
+    --danger: #e2836c;
+    --danger-bg: #2c1a16;
+    --focus: #5b9bf2;
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f8fc;
+    --surface: #ffffff;
+    --surface-sunken: #eef3f9;
+    --border: #d8e2ec;
+    --text: #16232f;
+    --text-muted: #55697a;
+    --accent: #2568c7;
+    --accent-ink: #0f4694;
+    --paw: #e08a2c;
+    --danger: #b34a35;
+    --danger-bg: #fbeeea;
+    --focus: #2568c7;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible, .step:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  header.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  .paw-mark { flex: none; width: 52px; height: 52px; }
+  .wordmark {
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .lang-switch {
+    margin-left: auto;
+    display: flex;
+    gap: 2px;
+    padding: 3px;
+    background: var(--surface-sunken);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .lang-btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .lang-btn:hover { color: var(--text); }
+  .lang-btn.is-active {
+    background: var(--surface);
+    color: var(--accent-ink);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  h1 {
+    font-size: clamp(28px, 4.5vw, 36px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .lede {
+    color: var(--text-muted);
+    font-size: 17px;
+    max-width: 60ch;
+    margin: 0 0 44px;
+  }
+  .lede strong { color: var(--text); font-weight: 600; }
+
+  .eyebrow {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .eyebrow .n {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    flex: none;
+  }
+
+  section.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 28px 30px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+  }
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0 0 22px;
+  }
+
+  ol.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .step-num {
+    flex: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--surface-sunken);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .step p { margin: 0; padding-top: 2px; }
+  .step code {
+    background: var(--surface-sunken);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 0.9em;
+  }
+
+  .email-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  .divider {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    letter-spacing: 0.06em;
+    margin: 8px 0 20px;
+  }
+
+  .data-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media (min-width: 560px) {
+    .data-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .data-col h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+  .data-col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .data-col li {
+    display: flex;
+    gap: 9px;
+    align-items: baseline;
+    font-size: 14.5px;
+  }
+  .dot {
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 6px;
+  }
+
+  .retention {
+    margin-top: 22px;
+    padding: 16px 18px;
+    background: var(--danger-bg);
+    border: 1px solid color-mix(in srgb, var(--danger) 35%, var(--border));
+    border-radius: 10px;
+    font-size: 14.5px;
+    color: var(--text);
+  }
+  .retention strong { color: var(--danger); }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 13.5px;
+    color: var(--text-muted);
+  }
+  footer a { color: var(--text-muted); }
+  footer a:hover { color: var(--accent); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    section.card { transition: border-color 0.15s ease; }
+    .lang-btn { transition: color 0.15s ease, background 0.15s ease; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="brand">
+    <img
+      class="paw-mark"
+      alt="PawFinder"
+      src="data:image/png;base64,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"
+    />
+    <span class="wordmark">PawFinder</span>
+    <div class="lang-switch" role="group" aria-label="Idioma / Language">
+      <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <h1 data-i18n="h1">Elimina tu cuenta y tus datos</h1>
+  <p class="lede" data-i18n="lede">
+    Esta página explica cómo eliminar permanentemente tu cuenta de PawFinder, conforme a
+    los requisitos de eliminación de cuentas y datos de Google Play. <strong>PawFinder</strong>
+    es desarrollada por chapakorea.
+  </p>
+
+  <section class="card">
+    <p class="eyebrow"><span class="n">1</span><span data-i18n="eyebrow1">En la app (lo más rápido)</span></p>
+    <h2 data-i18n="h2a">Elimínala desde tu dispositivo</h2>
+    <p class="section-sub" data-i18n="suba">Si todavía tienes PawFinder instalada, esto toma menos de un minuto.</p>
+    <ol class="steps">
+      <li class="step" tabindex="0">
+        <span class="step-num">1</span>
+        <p data-i18n="s1">Abre PawFinder y asegúrate de haber iniciado sesión.</p>
+      </li>
+      <li class="step" tabindex="0">
+        <span class="step-num">2</span>
+        <p data-i18n="s2">Ve a la pestaña <strong>Ajustes</strong>.</p>
+      </li>
+      <li class="step" tabindex="0">
+        <span class="step-num">3</span>
+        <p data-i18n="s3">Baja hasta el final de la pantalla y toca el botón <code>Cuenta</code>.</p>
+      </li>
+      <li class="step" tabindex="0">
+        <span class="step-num">4</span>
+        <p data-i18n="s4">Toca <code>Eliminar cuenta</code>.</p>
+      </li>
+      <li class="step" tabindex="0">
+        <span class="step-num">5</span>
+        <p data-i18n="s5">Escribe el correo de tu cuenta tal como aparece, para confirmar que eres tú.</p>
+      </li>
+      <li class="step" tabindex="0">
+        <span class="step-num">6</span>
+        <p data-i18n="s6">Toca <code>Eliminar cuenta</code> otra vez. Tu cuenta se elimina de inmediato —
+          esto no se puede deshacer.</p>
+      </li>
+    </ol>
+  </section>
+
+  <div class="divider" data-i18n="or">— O —</div>
+
+  <section class="card">
+    <p class="eyebrow"><span class="n">2</span><span data-i18n="eyebrow2">Sin la app</span></p>
+    <h2 data-i18n="h2b">Solicita la eliminación por correo</h2>
+    <p class="section-sub" data-i18n="subb">
+      ¿Ya no tienes PawFinder instalada? Escríbenos desde el correo con el que te registraste.
+    </p>
+    <p data-i18n="mailbody">
+      Envía un mensaje a
+      <a class="email-cta" href="mailto:contact@pawfinder.io?subject=Eliminar%20mi%20cuenta">
+        contact@pawfinder.io ↗
+      </a>
+      con el asunto <strong>«Eliminar mi cuenta»</strong> e incluye el correo registrado en
+      tu cuenta. Verificamos la solicitud con esa dirección y eliminamos tu cuenta en un
+      plazo de <strong>7 días hábiles</strong>.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="h2c">Qué se elimina</h2>
+    <p class="section-sub" data-i18n="subc">Eliminar tu cuenta borra lo siguiente, de forma permanente:</p>
+    <div class="data-grid">
+      <div class="data-col">
+        <h3 data-i18n="col1">Tus datos</h3>
+        <ul>
+          <li><span class="dot"></span><span data-i18n="d1">Cuenta y credenciales de acceso</span></li>
+          <li><span class="dot"></span><span data-i18n="d2">Perfil (nombre visible)</span></li>
+          <li><span class="dot"></span><span data-i18n="d3">Tus reportes de mascotas perdidas o encontradas, y sus fotos</span></li>
+        </ul>
+      </div>
+      <div class="data-col">
+        <h3 data-i18n="col2">Actividad y contactos</h3>
+        <ul>
+          <li><span class="dot"></span><span data-i18n="d4">Tus mensajes y conversaciones</span></li>
+          <li><span class="dot"></span><span data-i18n="d5">Historial de alertas y el radio de notificación guardado</span></li>
+          <li><span class="dot"></span><span data-i18n="d6">Usuarios que bloqueaste, y los bloqueos hacia ti</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="retention" data-i18n="retention">
+      <strong>Retención:</strong> la eliminación es inmediata en nuestros sistemas activos.
+      Las copias de seguridad cifradas se conservan hasta 30 días como práctica estándar de
+      recuperación ante desastres; después se purgan todas las copias restantes.
+    </div>
+  </section>
+
+  <footer>
+    <span>PawFinder — chapakorea</span>
+    <a href="mailto:contact@pawfinder.io">contact@pawfinder.io</a>
+    <a
+      href="https://chapakorea.github.io/pawfinder-legal/PrivacyPolicyPawFinder-es.pdf"
+      data-i18n="privacy"
+      data-doc="privacy"
+    >Política de Privacidad</a>
+    <a
+      href="https://chapakorea.github.io/pawfinder-legal/TermsAndConditionsPawFinder-es.pdf"
+      data-i18n="terms"
+      data-doc="terms"
+    >Términos y Condiciones</a>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    "use strict";
+
+    // Spanish is the markup's default, so the page reads correctly even if this
+    // script never runs. English is applied on demand.
+    var STRINGS = {
+      es: {
+        title: "Elimina tu cuenta y tus datos — PawFinder",
+        h1: "Elimina tu cuenta y tus datos",
+        lede: "Esta página explica cómo eliminar permanentemente tu cuenta de PawFinder, conforme a los requisitos de eliminación de cuentas y datos de Google Play. <strong>PawFinder</strong> es desarrollada por chapakorea.",
+        eyebrow1: "En la app (lo más rápido)",
+        h2a: "Elimínala desde tu dispositivo",
+        suba: "Si todavía tienes PawFinder instalada, esto toma menos de un minuto.",
+        s1: "Abre PawFinder y asegúrate de haber iniciado sesión.",
+        s2: "Ve a la pestaña <strong>Ajustes</strong>.",
+        s3: "Baja hasta el final de la pantalla y toca el botón <code>Cuenta</code>.",
+        s4: "Toca <code>Eliminar cuenta</code>.",
+        s5: "Escribe el correo de tu cuenta tal como aparece, para confirmar que eres tú.",
+        s6: "Toca <code>Eliminar cuenta</code> otra vez. Tu cuenta se elimina de inmediato — esto no se puede deshacer.",
+        or: "— O —",
+        eyebrow2: "Sin la app",
+        h2b: "Solicita la eliminación por correo",
+        subb: "¿Ya no tienes PawFinder instalada? Escríbenos desde el correo con el que te registraste.",
+        mailbody: 'Envía un mensaje a <a class="email-cta" href="mailto:contact@pawfinder.io?subject=Eliminar%20mi%20cuenta">contact@pawfinder.io ↗</a> con el asunto <strong>«Eliminar mi cuenta»</strong> e incluye el correo registrado en tu cuenta. Verificamos la solicitud con esa dirección y eliminamos tu cuenta en un plazo de <strong>7 días hábiles</strong>.',
+        h2c: "Qué se elimina",
+        subc: "Eliminar tu cuenta borra lo siguiente, de forma permanente:",
+        col1: "Tus datos",
+        d1: "Cuenta y credenciales de acceso",
+        d2: "Perfil (nombre visible)",
+        d3: "Tus reportes de mascotas perdidas o encontradas, y sus fotos",
+        col2: "Actividad y contactos",
+        d4: "Tus mensajes y conversaciones",
+        d5: "Historial de alertas y el radio de notificación guardado",
+        d6: "Usuarios que bloqueaste, y los bloqueos hacia ti",
+        retention: "<strong>Retención:</strong> la eliminación es inmediata en nuestros sistemas activos. Las copias de seguridad cifradas se conservan hasta 30 días como práctica estándar de recuperación ante desastres; después se purgan todas las copias restantes.",
+        privacy: "Política de Privacidad",
+        terms: "Términos y Condiciones"
+      },
+      en: {
+        title: "Delete your account & data — PawFinder",
+        h1: "Delete your account &amp; data",
+        lede: "This page explains how to permanently delete your PawFinder account, in line with Google Play's account and data deletion requirements. <strong>PawFinder</strong> is developed by chapakorea.",
+        eyebrow1: "In the app (fastest)",
+        h2a: "Delete from your device",
+        suba: "If you still have PawFinder installed, this takes under a minute.",
+        s1: "Open PawFinder and make sure you're signed in.",
+        s2: "Go to the <strong>Settings</strong> tab.",
+        s3: "Scroll to the bottom of the screen and tap the <code>Account</code> button.",
+        s4: "Tap <code>Delete account</code>.",
+        s5: "Type your account email exactly as shown, to confirm it's really you.",
+        s6: "Tap <code>Delete account</code> again. Your account is deleted immediately — this can't be undone.",
+        or: "— OR —",
+        eyebrow2: "Without the app",
+        h2b: "Request deletion by email",
+        subb: "No longer have PawFinder installed? Email us from the address you signed up with.",
+        mailbody: 'Send a message to <a class="email-cta" href="mailto:contact@pawfinder.io?subject=Delete%20my%20account">contact@pawfinder.io ↗</a> with the subject <strong>"Delete my account"</strong> and include the email address registered to your account. We verify the request against that address and delete your account within <strong>7 business days</strong>.',
+        h2c: "What gets deleted",
+        subc: "Deleting your account removes the following, permanently:",
+        col1: "Your data",
+        d1: "Account &amp; login credentials",
+        d2: "Profile (display name)",
+        d3: "Your lost/found pet reports &amp; photos",
+        col2: "Activity &amp; connections",
+        d4: "Your chat messages and conversations",
+        d5: "Alert history and saved notification radius",
+        d6: "Users you've blocked, and block records against you",
+        retention: "<strong>Retention:</strong> deletion is immediate in our live systems. Encrypted backups are retained for up to 30 days as standard disaster-recovery practice, after which all remaining copies are purged.",
+        privacy: "Privacy Policy",
+        terms: "Terms &amp; Conditions"
+      }
+    };
+
+    // The legal PDFs are published per language, the same pair the app links to
+    // from its own settings screen — so the toggle has to move the hrefs too,
+    // not just the link text.
+    var LEGAL_BASE = "https://chapakorea.github.io/pawfinder-legal/";
+    var DOCS = {
+      es: {
+        privacy: LEGAL_BASE + "PrivacyPolicyPawFinder-es.pdf",
+        terms: LEGAL_BASE + "TermsAndConditionsPawFinder-es.pdf"
+      },
+      en: {
+        privacy: LEGAL_BASE + "PrivacyPolicyPawFinder-en.pdf",
+        terms: LEGAL_BASE + "TermsAndConditionsPawFinder-en.pdf"
+      }
+    };
+
+    var STORE_KEY = "pawfinder-delete-lang";
+    var nodes = document.querySelectorAll("[data-i18n]");
+    var docLinks = document.querySelectorAll("[data-doc]");
+    var buttons = document.querySelectorAll(".lang-btn");
+
+    function apply(lang) {
+      var dict = STRINGS[lang];
+      if (!dict) return;
+
+      for (var i = 0; i < nodes.length; i++) {
+        var key = nodes[i].getAttribute("data-i18n");
+        if (Object.prototype.hasOwnProperty.call(dict, key)) {
+          nodes[i].innerHTML = dict[key];
+        }
+      }
+
+      for (var d = 0; d < docLinks.length; d++) {
+        var doc = docLinks[d].getAttribute("data-doc");
+        if (DOCS[lang] && DOCS[lang][doc]) {
+          docLinks[d].setAttribute("href", DOCS[lang][doc]);
+        }
+      }
+
+      document.documentElement.lang = lang;
+      document.title = dict.title;
+
+      for (var j = 0; j < buttons.length; j++) {
+        var on = buttons[j].getAttribute("data-lang") === lang;
+        buttons[j].setAttribute("aria-pressed", on ? "true" : "false");
+        buttons[j].classList.toggle("is-active", on);
+      }
+
+      try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+    }
+
+    for (var k = 0; k < buttons.length; k++) {
+      buttons[k].addEventListener("click", function () {
+        apply(this.getAttribute("data-lang"));
+      });
+    }
+
+    var initial = "es";
+    try {
+      var saved = localStorage.getItem(STORE_KEY);
+      if (saved === "es" || saved === "en") initial = saved;
+    } catch (e) {}
+    apply(initial);
+  })();
+</script>
+
+</body>
+</html>
